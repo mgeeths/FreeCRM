@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [All Test Suite]">
+  <test thread-count="5" name="C:/Users/browse/WebAutomation/FreeCRM(failed)">
+    <classes>
+      <class name="com.crm.qa.tests.TestContactsPage">
+        <parameter name="email" value="abc.com"/>
+        <parameter name="searchName" value="sh"/>
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyFilterByEmail" invocation-numbers="0"/>
+          <include name="navToContactsPage"/>
+          <include name="goBackToHomePage"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.crm.qa.tests.TestContactsPage -->
+    </classes>
+  </test> <!-- C:/Users/browse/WebAutomation/FreeCRM(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

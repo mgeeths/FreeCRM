@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/browse/WebAutomation/FreeCRM">
+        <classes>
+            <class name="com.crm.qa.tests.TestLoginPage">
+                <methods>
+                    <include name="verifyLoginAndLogout"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestHomePage">
+                <methods>
+                    <include name="navToContactsPage"/>
+                    <include name="navToDealsPage"/>
+                    <include name="navToCompaniesPage"/>
+                    <include name="navToCampaignsPage"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestNewContactsPage">
+                <methods>
+                    <include name="verifyEnterAllDetailsDirectlyFromExcel"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestContactsPage">
+                <parameter name="email" value="abc.com"></parameter>
+                <parameter name="searchName" value="steffi"></parameter>
+                <parameter name="searchLastName" value="a"></parameter>
+                <methods>
+                    <include name="navToNewContactsPage"/>
+                    <include name="verifyFilterByEmail"/>
+                    <include name="verifyFilterFirstNameByContains"/>
+                    <include name="verifyFilterLastNameByContains"/>
+                    <include name="verifyFilterStatusNew"/>
+                    <include name="verifyFilterStatusActive"/>
+                    <include name="verifyFilterStatusInactive"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestNewDealsPage">
+                <methods>
+                    <include name="createNewDealFromExcelWithDP"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestDealsPage">
+                <parameter name="searchComp" value="SAP"></parameter>
+                <parameter name="fromDate" value="06/06/2020"></parameter>
+                <parameter name="toDate" value="01/08/2020"></parameter>
+                <methods>
+                    <include name="goToNewDealsPage"/>
+                    <include name="verifyFilterByCompany"/>
+                    <include name="verifyFilterByNewStatus"/>
+                    <include name="verifyFilterByActiveStatus"/>
+                    <include name="verifyFilterByInactiveStatus"/>
+                    <include name="verifyFilterByDates"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestNewCampaignsPage">
+                <methods>
+                    <include name="verifyCreateNewCampaignWithDPWithoutExcel"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestCampaignsPage">
+                <methods>
+                    <include name="goToNewCampaignsPage"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestDeleteRecords">
+                <methods>
+                    <include name="verifyDeleteContactsCreated"/>
+                    <include name="verifyDeleteDealsCreated"/>
+                    <include name="verifyDeleteCompaniesCreated"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
