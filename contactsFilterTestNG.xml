@@ -5,10 +5,13 @@
         <classes>
 
             <class name="com.crm.qa.tests.TestDealsPage">
-                <parameter name="fromDate" value="06/07/2020"></parameter>
-                <parameter name="toDate" value="01/08/2020"></parameter>
+                <parameter name="searchComp" value="Honda"/>
+
                 <methods>
-                    <include name="verifyFilterByDates"/>
+                    <include name="goToNewDealsPage"/>
+                    <include name="verifyFilterByCompany"/>
+                    <include name="verifyFilterByNewStatus"/>
+
                 </methods>
             </class>
         </classes>

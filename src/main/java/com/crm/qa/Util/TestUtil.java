@@ -1,15 +1,29 @@
 package com.crm.qa.Util;
 
 import com.crm.qa.base.BaseClass;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.io.FileUtils;
+
+
 
 public class TestUtil extends BaseClass {
 
     public static long pageLoadTimeout = 30;
     public static long implicitlyWait = 10;
     static Xls_Reader reader;
+
+    public void takeScreenshot(String fileName) throws IOException {
+        //take screenshot by casting driver to takescreeshot
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        //now copy the file to the desired location using copyfile method
+        FileUtils.copyFile(file,new File("C:\\Users\\browse\\WebAutomation\\FreeCRM\\Screenshots\\"+ fileName +".jpg"));
+    }
 
     public static ArrayList<Object[]> getTestDataForNewDealsFromExcel() {
         ArrayList<Object[]> testData = new ArrayList<>();

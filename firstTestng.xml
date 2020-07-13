@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.crm.qa.extentReportListner.ExtentReportListner" />
+    </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/browse/WebAutomation/FreeCRM">
         <classes>
             <class name="com.crm.qa.tests.TestLoginPage">
@@ -22,9 +25,9 @@
                 </methods>
             </class>
             <class name="com.crm.qa.tests.TestContactsPage">
-                <parameter name="email" value="abc.com"></parameter>
-                <parameter name="searchName" value="steffi"></parameter>
-                <parameter name="searchLastName" value="a"></parameter>
+                <parameter name="email" value="abc.com"/>
+                <parameter name="searchName" value="steffi"/>
+                <parameter name="searchLastName" value="a"/>
                 <methods>
                     <include name="navToNewContactsPage"/>
                     <include name="verifyFilterByEmail"/>
@@ -41,9 +44,9 @@
                 </methods>
             </class>
             <class name="com.crm.qa.tests.TestDealsPage">
-                <parameter name="searchComp" value="SAP"></parameter>
-                <parameter name="fromDate" value="06/06/2020"></parameter>
-                <parameter name="toDate" value="01/08/2020"></parameter>
+                <parameter name="searchComp" value="Honda"/>
+                <parameter name="fromDate" value="06/06/2020"/>
+                <parameter name="toDate" value="01/08/2020"/>
                 <methods>
                     <include name="goToNewDealsPage"/>
                     <include name="verifyFilterByCompany"/>
