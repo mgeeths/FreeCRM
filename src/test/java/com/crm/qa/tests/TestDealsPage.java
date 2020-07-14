@@ -9,6 +9,7 @@ import org.testng.annotations.*;
 
 import java.text.ParseException;
 
+@Listeners(CustomListener.class)
 public class TestDealsPage extends BaseClass {
 
     LoginPage loginPage;

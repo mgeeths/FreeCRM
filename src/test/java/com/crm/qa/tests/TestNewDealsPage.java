@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@Listeners(CustomListener.class)
 public class TestNewDealsPage extends BaseClass {
 
     LoginPage loginPage;

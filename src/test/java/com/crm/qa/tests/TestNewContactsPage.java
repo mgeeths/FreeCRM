@@ -8,6 +8,7 @@ import com.crm.qa.pages.NewContactsPage;
 import org.junit.Assert;
 import org.testng.annotations.*;
 
+@Listeners(CustomListener.class)
 public class TestNewContactsPage extends BaseClass {
 
     LoginPage loginPage;

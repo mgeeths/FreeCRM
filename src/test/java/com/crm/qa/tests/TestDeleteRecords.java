@@ -4,6 +4,7 @@ import com.crm.qa.base.BaseClass;
 import com.crm.qa.pages.*;
 import org.testng.annotations.*;
 
+@Listeners(CustomListener.class)
 public class TestDeleteRecords extends BaseClass {
     LoginPage loginPage;
     HomePage homePage;

@@ -6,6 +6,7 @@ import com.crm.qa.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+@Listeners(CustomListener.class)
 public class TestLoginPage extends BaseClass {
     LoginPage loginPage;
 

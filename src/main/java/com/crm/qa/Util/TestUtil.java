@@ -41,12 +41,4 @@ public class TestUtil extends BaseClass {
         return testData;
     }
 
-    public void takeScreenShot(){
-        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(srcFile, new File("C:\\Users\\browse\\WebAutomation\\FreeCRM\\Screenshots"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -17,6 +17,7 @@
                     <include name="navToDealsPage"/>
                     <include name="navToCompaniesPage"/>
                     <include name="navToCampaignsPage"/>
+                    <include name="verifyCaptureScreeshotOfFailedTests"/>
                 </methods>
             </class>
             <class name="com.crm.qa.tests.TestNewContactsPage">
