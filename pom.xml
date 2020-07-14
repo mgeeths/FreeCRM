@@ -168,7 +168,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>firstTestng.xml</suiteXmlFile>
+                        <suiteXmlFile>contactsFilterTestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

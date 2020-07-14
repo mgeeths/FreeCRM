@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Selective Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/browse/WebAutomation/FreeCRM">
         <classes>
-
-            <class name="com.crm.qa.tests.TestDealsPage">
-                <parameter name="searchComp" value="Honda"/>
-
+            <class name="com.crm.qa.tests.TestNewContactsPage">
                 <methods>
-                    <include name="goToNewDealsPage"/>
-                    <include name="verifyFilterByCompany"/>
-                    <include name="verifyFilterByNewStatus"/>
-
+                    <include name="verifyEnterAllDetailsDirectlyFromExcel"/>
+                </methods>
+            </class>
+            <class name="com.crm.qa.tests.TestDeleteRecords">
+                <methods>
+                    <include name="verifyDeleteContactsCreated"/>
                 </methods>
             </class>
         </classes>

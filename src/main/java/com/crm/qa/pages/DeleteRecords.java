@@ -114,6 +114,7 @@ public class DeleteRecords extends BaseClass {
                         Actions actions = new Actions(driver);
                         actions.moveToElement(allCols.get(0)).build().perform();
                         allCols.get(0).click();
+                        Thread.sleep(500);
                     }
                 }
             }
