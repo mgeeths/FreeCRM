@@ -6,6 +6,7 @@ import com.crm.qa.pages.LoginPage;
 import org.junit.Assert;
 import org.testng.annotations.*;
 
+@Listeners(CustomListener.class)
 public class TestHomePage extends BaseClass {
     LoginPage loginPage;
     HomePage homePage;
@@ -52,6 +53,13 @@ public class TestHomePage extends BaseClass {
     public void navToCampaignsPage(){
         homePage.goToCampaignsPage();
         Assert.assertTrue(driver.getCurrentUrl().equals("https://ui.freecrm.com/campaigns"));
+    }
+
+    @Test
+    public void verifyCaptureScreeshotOfFailedTests(){
+        homePage.goToDealsPage();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://ui.freecrm.com/companies"));
+
     }
 
     @AfterMethod

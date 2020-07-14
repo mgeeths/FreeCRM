@@ -18,11 +18,11 @@ public class TestUtil extends BaseClass {
     public static long implicitlyWait = 10;
     static Xls_Reader reader;
 
-    public void takeScreenshot(String fileName) throws IOException {
+    public static void takeScreenshot(String methodName) throws IOException {
         //take screenshot by casting driver to takescreeshot
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         //now copy the file to the desired location using copyfile method
-        FileUtils.copyFile(file,new File("C:\\Users\\browse\\WebAutomation\\FreeCRM\\Screenshots\\"+ fileName +".jpg"));
+        FileUtils.copyFile(file,new File("C:\\Users\\browse\\WebAutomation\\FreeCRM\\Screenshots\\"+ "failShot of" +methodName+".jpg"));
     }
 
     public static ArrayList<Object[]> getTestDataForNewDealsFromExcel() {
@@ -39,5 +39,14 @@ public class TestUtil extends BaseClass {
             testData.add(new Object[]{title, company, contacts, amount, commission});
         }
         return testData;
+    }
+
+    public void takeScreenShot(){
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(srcFile, new File("C:\\Users\\browse\\WebAutomation\\FreeCRM\\Screenshots"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
