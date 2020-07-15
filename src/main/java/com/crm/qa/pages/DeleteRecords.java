@@ -2,16 +2,22 @@ package com.crm.qa.pages;
 
 import com.crm.qa.Util.Xls_Reader;
 import com.crm.qa.base.BaseClass;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 
 import java.util.List;
 
 public class DeleteRecords extends BaseClass {
+    private static final Logger logger = LogManager.getLogger(DeleteRecords.class);
     Xls_Reader reader;
 
     //Page Factory
@@ -99,20 +105,27 @@ public class DeleteRecords extends BaseClass {
     }
 
     public void deleteContactsCreated() throws InterruptedException {
+
         int rowCount = reader.getRowCount("NewContactDetails");
+        //driver.navigate().refresh();
+
         for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
             String contactName = reader.getCellData("NewContactDetails", "FirstName", rowNum);
+            logger.debug("Picked  "+ contactName+ " from Excel");
+            logger.debug("Number of pages " + allPages.size());
             for (WebElement eachPage : allPages) {
                 eachPage.click();
+                logger.debug("On page "+ eachPage);
                 Thread.sleep(2000);
                 for (WebElement eachRow : allRows) {
                     List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
                     String name = allCols.get(1).getText().toLowerCase();
                     if (name.startsWith(contactName.toLowerCase())) {
                         Thread.sleep(1000);
-                        System.out.println(name);
+                        logger.debug(name +" in table");
                         Actions actions = new Actions(driver);
                         actions.moveToElement(allCols.get(0)).build().perform();
+                        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", allCols.get(0));
                         allCols.get(0).click();
                         Thread.sleep(500);
                     }

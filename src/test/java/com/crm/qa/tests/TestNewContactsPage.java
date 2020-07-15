@@ -37,6 +37,7 @@ public class TestNewContactsPage extends BaseClass {
     public void navToNewContactsPage()  {
         homePage.goToContactsPage();
         contactsPage.goToNewContactsPage();
+
          }
 
     @Test

@@ -44,6 +44,7 @@ public class TestDeleteRecords extends BaseClass {
     @Test(priority = 1)
     public void verifyDeleteDealsCreated() throws InterruptedException {
         homePage.goToDealsPage();
+        Thread.sleep(1000);
         deleteRecords.deleteDealsCreated();
         deleteRecords.validateDeletedDeals();
     }
