@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
@@ -105,6 +106,7 @@ public class ContactsPage extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
         wait.until(ExpectedConditions.visibilityOf(pageHeader));
         logger.debug("Entered new contacts page and verified page header");
+        Assert.assertTrue(pageHeader.isDisplayed());
         return new NewContactsPage();
     }
 
