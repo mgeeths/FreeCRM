@@ -2,6 +2,8 @@ package com.crm.qa.pages;
 
 import com.crm.qa.Util.Xls_Reader;
 import com.crm.qa.base.BaseClass;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +16,8 @@ import java.time.Duration;
 import java.util.List;
 
 public class ContactsPage extends BaseClass {
+    private static final Logger logger = LogManager.getLogger(NewContactsPage.class);
+
     Xls_Reader reader;
     //Page Factory
     @FindBy(xpath = "//button[contains(text(),'New')]")
@@ -92,8 +96,11 @@ public class ContactsPage extends BaseClass {
 
     public NewContactsPage goToNewContactsPage() {
         newContactBtn.click();
+        logger.debug("Clicked create new contact button");
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
         wait.until(ExpectedConditions.visibilityOf(pageHeader));
+        logger.debug("Entered new contacts page and verified page header");
         return new NewContactsPage();
     }
 
