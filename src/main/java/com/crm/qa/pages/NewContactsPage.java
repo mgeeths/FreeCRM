@@ -91,6 +91,7 @@ public class NewContactsPage extends BaseClass {
     public void enterNewContactDetailsDirectlyFromExcel() throws InterruptedException {
 
         for (int rowNum=2; rowNum<=reader.getRowCount("NewContactDetails"); rowNum++) {
+            driver.navigate().refresh();
             Thread.sleep(2000);
             fNameField.clear();
             fNameField.click();
