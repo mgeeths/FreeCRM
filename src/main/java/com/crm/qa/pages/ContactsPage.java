@@ -94,10 +94,14 @@ public class ContactsPage extends BaseClass {
         reader = new Xls_Reader("C:\\Users\\browse\\WebAutomation\\FreeCRM\\src\\main\\java\\com\\crm\\qa\\testdata\\FreeCRM.xlsx");
     }
 
-    public NewContactsPage goToNewContactsPage() {
+    public NewContactsPage goToNewContactsPage() throws InterruptedException {
         newContactBtn.click();
         logger.debug("Clicked create new contact button");
-
+        if(! pageHeader.isDisplayed()){
+            driver.navigate().refresh();
+            logger.debug("Refreshed the new contacts page");
+            Thread.sleep(2000);
+        }
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
         wait.until(ExpectedConditions.visibilityOf(pageHeader));
         logger.debug("Entered new contacts page and verified page header");

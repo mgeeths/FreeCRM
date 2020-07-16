@@ -98,6 +98,7 @@ public class NewContactsPage extends BaseClass {
     public void enterNewContactDetailsDirectlyFromExcel() throws InterruptedException {
 
         for (int rowNum=2; rowNum<=reader.getRowCount("NewContactDetails"); rowNum++) {
+            /*
             logger.debug("In New contacts page");
             if(! pageHeader.isDisplayed()){
                 driver.navigate().refresh();
@@ -106,6 +107,7 @@ public class NewContactsPage extends BaseClass {
             }
             WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(2000));
             wait.until(ExpectedConditions.visibilityOf(pageHeader));
+             */
             fNameField.clear();
             fNameField.click();
             fNameField.sendKeys(reader.getCellData("NewContactDetails", "FirstName", rowNum));

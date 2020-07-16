@@ -34,7 +34,7 @@ public class TestNewContactsPage extends BaseClass {
     }
 
     @BeforeMethod
-    public void navToNewContactsPage()  {
+    public void navToNewContactsPage() throws InterruptedException {
         homePage.goToContactsPage();
         contactsPage.goToNewContactsPage();
 

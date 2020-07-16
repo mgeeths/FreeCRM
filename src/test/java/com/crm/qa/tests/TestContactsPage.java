@@ -35,7 +35,7 @@ public class TestContactsPage  extends BaseClass {
         }
 
         @Test(priority = 1)
-        public void navToNewContactsPage(){
+        public void navToNewContactsPage() throws InterruptedException {
             contactsPage.goToNewContactsPage();
             Assert.assertTrue(driver.getCurrentUrl().equals("https://ui.freecrm.com/contacts/new"));
         }
