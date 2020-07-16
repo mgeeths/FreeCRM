@@ -2,6 +2,8 @@ package com.crm.qa.pages;
 
 import com.crm.qa.Util.Xls_Reader;
 import com.crm.qa.base.BaseClass;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -17,10 +19,15 @@ import java.time.Duration;
 
 
 public class NewContactsPage extends BaseClass {
+    private static final Logger logger = LogManager.getLogger(NewContactsPage.class);
     Xls_Reader reader;
     HomePage homePage;
     ContactsPage contactsPage;
     //Page Factory
+
+    @FindBy(xpath="//div[@id='dashboard-toolbar']//div[text()='Create New Contact']")
+    WebElement pageHeader;
+
     @FindBy(name = "first_name")
     WebElement fNameField;
 
@@ -91,8 +98,14 @@ public class NewContactsPage extends BaseClass {
     public void enterNewContactDetailsDirectlyFromExcel() throws InterruptedException {
 
         for (int rowNum=2; rowNum<=reader.getRowCount("NewContactDetails"); rowNum++) {
-            driver.navigate().refresh();
-            Thread.sleep(2000);
+            logger.debug("In New contacts page");
+            if(! pageHeader.isDisplayed()){
+                driver.navigate().refresh();
+                logger.debug("Refreshed the new contacts page");
+                Thread.sleep(2000);
+            }
+            WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(2000));
+            wait.until(ExpectedConditions.visibilityOf(pageHeader));
             fNameField.clear();
             fNameField.click();
             fNameField.sendKeys(reader.getCellData("NewContactDetails", "FirstName", rowNum));
@@ -109,8 +122,8 @@ public class NewContactsPage extends BaseClass {
             emailCategoryField.click();
             emailCategoryField.sendKeys(reader.getCellData("NewContactDetails", "Category", rowNum));
             addEmailBtn.click();
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-            wait.until(ExpectedConditions.visibilityOf(altEmailField));
+            WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(2));
+            wait1.until(ExpectedConditions.visibilityOf(altEmailField));
             altEmailField.sendKeys(reader.getCellData("NewContactDetails", "AltEmail", rowNum));
             altEmailCategoryField.sendKeys(reader.getCellData("NewContactDetails", "AltCategory", rowNum));
             categorySelectionField.click();
