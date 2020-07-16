@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.crm.qa.extentReportListner.ExtentReportListner" />
+        <listener class-name="com.crm.qa.Listener.ExtentReportListener" />
+        <listener class-name="com.crm.qa.Listener.Transformer"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/browse/WebAutomation/FreeCRM">
         <classes>
