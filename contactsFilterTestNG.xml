@@ -3,14 +3,11 @@
 <suite name="Selective Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/browse/WebAutomation/FreeCRM">
         <classes>
-            <class name="com.crm.qa.tests.TestNewContactsPage">
+
+            <class name="com.crm.qa.tests.TestContactsPage">
+            <parameter name="email" value="abc.com"/>
                 <methods>
-                    <include name="verifyEnterAllDetailsDirectlyFromExcel"/>
-                </methods>
-            </class>
-            <class name="com.crm.qa.tests.TestDeleteRecords">
-                <methods>
-                    <include name="verifyDeleteContactsCreated"/>
+                    <include name="verifyFilterByEmail"/>
                 </methods>
             </class>
         </classes>

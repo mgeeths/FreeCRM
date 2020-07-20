@@ -19,6 +19,9 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//div[@id='main-nav']//a[contains(@href,'companies')]")
     WebElement companiesTabLink;
 
+    @FindBy(xpath = "//div[@id='main-nav']//a[contains(@href,'tasks')]")
+    WebElement tasksTabLink;
+
     @FindBy(xpath = "//div[@id='main-nav']//a[contains(@href,'campaigns')]")
     WebElement campaignsTabLink;
 
@@ -46,6 +49,11 @@ public class HomePage extends BaseClass {
     public CompaniesPage goToCompaniesPage(){
         companiesTabLink.click();
         return new CompaniesPage();
+    }
+
+    public TasksPage goToTasksPage(){
+        tasksTabLink.click();
+        return new TasksPage();
     }
 
 

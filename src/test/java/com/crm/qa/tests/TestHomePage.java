@@ -50,6 +50,12 @@ public class TestHomePage extends BaseClass {
     }
 
     @Test
+    public void navToTasksPage(){
+        homePage.goToTasksPage();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://ui.freecrm.com/tasks"));
+    }
+
+    @Test
     public void navToCampaignsPage(){
         homePage.goToCampaignsPage();
         Assert.assertTrue(driver.getCurrentUrl().equals("https://ui.freecrm.com/campaigns"));

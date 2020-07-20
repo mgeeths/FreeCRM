@@ -41,4 +41,19 @@ public class TestUtil extends BaseClass {
         return testData;
     }
 
+    public static ArrayList<Object[]> getNewTaskData() {
+        ArrayList<Object[]> taskData = new ArrayList<>();
+        reader = new Xls_Reader("C:\\Users\\browse\\WebAutomation\\FreeCRM\\src\\main\\java\\com\\crm\\qa\\testdata\\FreeCRM.xlsx");
+        for (int i = 2; i <= reader.getRowCount("NewTaskDetails"); i++) {
+            String title = reader.getCellData("NewTaskDetails", "Title", i);
+            String contacts = reader.getCellData("NewTaskDetails", "Contacts", i);
+            String deals = reader.getCellData("NewTaskDetails", "Deals", i);
+            String dueDate = reader.getCellData("NewTaskDetails", "DueDate", i);
+            String closeDate = reader.getCellData("NewTaskDetails", "CloseDate", i);
+
+            taskData.add(new Object[]{title, contacts, deals, dueDate, closeDate});
+        }
+        return taskData;
+    }
+
 }
