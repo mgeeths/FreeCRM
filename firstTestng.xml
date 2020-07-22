@@ -58,6 +58,11 @@
                     <include name="verifyFilterByDates"/>
                 </methods>
             </class>
+            <class name="com.crm.qa.tests.TestNewTasksPage">
+                <methods>
+                    <include name="createNewTask"/>
+                </methods>
+            </class>
             <class name="com.crm.qa.tests.TestNewCampaignsPage">
                 <methods>
                     <include name="verifyCreateNewCampaignWithDPWithoutExcel"/>
